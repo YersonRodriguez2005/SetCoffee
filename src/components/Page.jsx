@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Coffee, Heart, Users, Phone, MapPin, Instagram, ShoppingBag } from 'lucide-react';
 
-import logo from "../assets/logo.jpg";
+import logo from "../assets/Logo.jpg";
 
 // Componente de Navegación
 const Navbar = ({ activeSection, setActiveSection }) => {
