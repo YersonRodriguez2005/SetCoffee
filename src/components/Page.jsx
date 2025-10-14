@@ -28,8 +28,8 @@ const Navbar = ({ activeSection, setActiveSection }) => {
         : "bg-transparent"
         }`}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-8">
-        <div className="flex justify-between items-center h-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+        <div className="flex justify-between items-center h-16 sm:h-20">
           {/* Logo */}
           <div
             className="flex items-center space-x-2 cursor-pointer select-none"
@@ -49,12 +49,12 @@ const Navbar = ({ activeSection, setActiveSection }) => {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-10">
+          <div className="hidden md:flex items-center space-x-6 lg:space-x-10">
             {menuItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => setActiveSection(item.id)}
-                className={`relative text-lg font-medium transition-all duration-300 ${activeSection === item.id
+                className={`relative text-base lg:text-lg font-medium transition-all duration-300 ${activeSection === item.id
                   ? "text-pink-300"
                   : "text-amber-900 hover:text-pink-300"
                   }`}
@@ -72,7 +72,7 @@ const Navbar = ({ activeSection, setActiveSection }) => {
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden text-amber-900 transition-transform hover:scale-110"
           >
-            {isOpen ? <X size={30} /> : <Menu size={30} />}
+            {isOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
 
@@ -89,7 +89,7 @@ const Navbar = ({ activeSection, setActiveSection }) => {
                   setActiveSection(item.id);
                   setIsOpen(false);
                 }}
-                className={`w-full text-left px-4 py-3 rounded-md text-lg transition-colors duration-300 ${activeSection === item.id
+                className={`w-full text-left px-4 py-3 rounded-md text-base transition-colors duration-300 ${activeSection === item.id
                   ? "text-pink-300 bg-amber-50"
                   : "text-amber-900 hover:bg-pink-50"
                   }`}
@@ -119,31 +119,33 @@ const Navbar = ({ activeSection, setActiveSection }) => {
 const Hero = ({ setActiveSection }) => {
   return (
     <section
-      className="relative min-h-screen flex items-center justify-center px-6 pt-24 overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 pt-20 sm:pt-24 pb-10 overflow-hidden"
       style={{ backgroundColor: "#DDC7AB" }}
     >
       {/* Fondo decorativo sutil */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <div className="w-[500px] h-[500px] bg-white rounded-full blur-3xl absolute -top-40 -left-40" />
-        <div className="w-[400px] h-[400px] bg-pink-200 rounded-full blur-3xl absolute bottom-0 right-0" />
+        <div className="w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-white rounded-full blur-3xl absolute -top-40 -left-40" />
+        <div className="w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] bg-pink-200 rounded-full blur-3xl absolute bottom-0 right-0" />
       </div>
 
       {/* Contenido principal */}
       <div className="relative z-10 max-w-5xl mx-auto text-center animate-fadeIn">
         {/* Ícono central animado */}
-        <div className="flex justify-center mb-10">
-          <div className="p-3 bg-white/90 rounded-full shadow-2xl animate-bounce-slow">
+        <div className="flex justify-center mb-6 sm:mb-10">
+          <div className="p-2 sm:p-3 bg-white/90 rounded-full shadow-2xl animate-bounce-slow">
+            <div className="p-3 bg-white/90 rounded-full shadow-2xl animate-bounce-slow">
             <img
               src={logo}
               alt="Logo Set Coffee"
               className="w-40 h-40 object-cover rounded-full border-4 border-pink-200 shadow-md transition-transform duration-500 hover:scale-110"
             />
           </div>
+          </div>
         </div>
 
         {/* Título */}
         <h1
-          className="text-5xl md:text-7xl font-bold mb-6 tracking-tight leading-tight"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 tracking-tight leading-tight px-4"
           style={{ color: "#4D2417", fontFamily: "serif" }}
         >
           Set Coffee
@@ -151,7 +153,7 @@ const Hero = ({ setActiveSection }) => {
 
         {/* Subtítulo */}
         <p
-          className="text-2xl md:text-3xl italic mb-8"
+          className="text-xl sm:text-2xl md:text-3xl italic mb-6 sm:mb-8 px-4"
           style={{ color: "#4D2417" }}
         >
           El arte de cultivar, el placer de disfrutar
@@ -159,7 +161,7 @@ const Hero = ({ setActiveSection }) => {
 
         {/* Descripción */}
         <p
-          className="text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed"
+          className="text-base sm:text-lg md:text-xl mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed px-4"
           style={{ color: "#4D2417" }}
         >
           Descubre nuestros productos artesanales elaborados con pasión, donde
@@ -169,7 +171,7 @@ const Hero = ({ setActiveSection }) => {
         {/* Botón principal */}
         <button
           onClick={() => setActiveSection("productos")}
-          className="relative px-10 py-4 text-lg font-semibold text-white rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 mb-16"
+          className="relative px-8 sm:px-10 py-3 sm:py-4 text-base sm:text-lg font-semibold text-white rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 mb-8 sm:mb-16"
           style={{ backgroundColor: "#FBC3CC" }}
         >
           Ver Productos
@@ -243,26 +245,26 @@ const Products = () => {
 
   return (
     <section
-      className="relative min-h-screen py-24 px-6 overflow-hidden"
+      className="relative min-h-screen py-16 sm:py-20 md:py-24 px-4 sm:px-6 overflow-hidden"
       style={{ backgroundColor: "#FFFFFF" }}
     >
       {/* Fondo decorativo */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <div className="w-[400px] h-[400px] bg-[#DDC7AB] rounded-full blur-3xl absolute top-20 left-10" />
-        <div className="w-[300px] h-[300px] bg-[#FBC3CC] rounded-full blur-3xl absolute bottom-10 right-10" />
+        <div className="w-[300px] sm:w-[400px] h-[300px] sm:h-[400px] bg-[#DDC7AB] rounded-full blur-3xl absolute top-20 left-10" />
+        <div className="w-[200px] sm:w-[300px] h-[200px] sm:h-[300px] bg-[#FBC3CC] rounded-full blur-3xl absolute bottom-10 right-10" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Título */}
-        <div className="text-center mb-20 animate-fadeIn">
+        <div className="text-center mb-12 sm:mb-16 md:mb-20 animate-fadeIn px-4">
           <h2
-            className="text-5xl md:text-6xl font-bold mb-4 tracking-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 tracking-tight"
             style={{ color: "#4D2417", fontFamily: "serif" }}
           >
             Nuestros Productos
           </h2>
           <p
-            className="text-xl md:text-2xl font-light max-w-2xl mx-auto"
+            className="text-lg sm:text-xl md:text-2xl font-light max-w-2xl mx-auto"
             style={{ color: "#4D2417" }}
           >
             Cada creación refleja la pasión y el arte detrás del sabor del café
@@ -271,31 +273,31 @@ const Products = () => {
         </div>
 
         {/* Grid de productos */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
           {products.map((product) => (
             <div
               key={product.id}
-              className="group relative bg-white rounded-3xl shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer animate-fadeIn"
+              className="group relative bg-white rounded-2xl sm:rounded-3xl shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer animate-fadeIn"
               onClick={() => setSelectedProduct(product)}
             >
               {/* Imagen o ícono */}
               <div
-                className="h-52 flex items-center justify-center text-8xl transition-all duration-300 group-hover:scale-110"
+                className="h-40 sm:h-48 md:h-52 flex items-center justify-center text-6xl sm:text-7xl md:text-8xl transition-all duration-300 group-hover:scale-110"
                 style={{ backgroundColor: "#DDC7AB" }}
               >
                 {product.imagen}
               </div>
 
               {/* Contenido */}
-              <div className="p-6">
+              <div className="p-4 sm:p-5 md:p-6">
                 <h3
-                  className="text-2xl font-bold mb-2"
+                  className="text-xl sm:text-2xl font-bold mb-2"
                   style={{ color: "#4D2417", fontFamily: "serif" }}
                 >
                   {product.nombre}
                 </h3>
                 <p
-                  className="text-base mb-4 leading-relaxed"
+                  className="text-sm sm:text-base mb-4 leading-relaxed"
                   style={{ color: "#4D2417" }}
                 >
                   {product.descripcion}
@@ -303,14 +305,14 @@ const Products = () => {
 
                 <div className="flex justify-between items-center">
                   <span
-                    className="text-2xl font-bold"
+                    className="text-xl sm:text-2xl font-bold"
                     style={{ color: "#FBC3CC" }}
                   >
                     {product.precio}
                   </span>
                   <ShoppingBag
                     className="text-pink-300 group-hover:scale-110 transition-transform duration-300"
-                    size={26}
+                    size={24}
                   />
                 </div>
               </div>
@@ -324,45 +326,45 @@ const Products = () => {
         {/* Modal de Detalle */}
         {selectedProduct && (
           <div
-            className="fixed inset-0 bg-black/50 flex items-center justify-center p-6 z-50 animate-fadeIn"
+            className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 sm:p-6 z-50 animate-fadeIn"
             onClick={() => setSelectedProduct(null)}
           >
             <div
-              className="relative bg-white rounded-3xl p-10 max-w-md w-full shadow-2xl animate-scaleIn"
+              className="relative bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 max-w-md w-full shadow-2xl animate-scaleIn"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Botón cerrar */}
               <button
                 onClick={() => setSelectedProduct(null)}
-                className="absolute top-4 right-4 text-gray-500 hover:text-[#4D2417] transition-colors"
+                className="absolute top-3 right-3 sm:top-4 sm:right-4 text-gray-500 hover:text-[#4D2417] transition-colors"
               >
-                <X size={28} />
+                <X size={24} className="sm:w-7 sm:h-7" />
               </button>
 
               {/* Contenido del modal */}
               <div className="text-center">
-                <div className="text-8xl mb-4">{selectedProduct.imagen}</div>
+                <div className="text-6xl sm:text-7xl md:text-8xl mb-4">{selectedProduct.imagen}</div>
                 <h3
-                  className="text-3xl font-bold mb-4"
+                  className="text-2xl sm:text-3xl font-bold mb-4"
                   style={{ color: "#4D2417", fontFamily: "serif" }}
                 >
                   {selectedProduct.nombre}
                 </h3>
                 <p
-                  className="mb-6 leading-relaxed"
+                  className="mb-6 leading-relaxed text-sm sm:text-base"
                   style={{ color: "#4D2417" }}
                 >
                   {selectedProduct.descripcionCompleta}
                 </p>
                 <p
-                  className="text-3xl font-bold mb-8"
+                  className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8"
                   style={{ color: "#FBC3CC" }}
                 >
                   {selectedProduct.precio}
                 </p>
                 <button
                   onClick={() => setSelectedProduct(null)}
-                  className="w-full py-3 rounded-full font-semibold text-white hover:opacity-90 transition-opacity"
+                  className="w-full py-3 rounded-full font-semibold text-white hover:opacity-90 transition-opacity text-base sm:text-lg"
                   style={{ backgroundColor: "#FBC3CC" }}
                 >
                   Cerrar
@@ -380,26 +382,26 @@ const Products = () => {
 const About = () => {
   return (
     <section
-      className="relative min-h-screen py-24 px-6 overflow-hidden"
+      className="relative min-h-screen py-16 sm:py-20 md:py-24 px-4 sm:px-6 overflow-hidden"
       style={{ backgroundColor: "#DDC7AB" }}
     >
       {/* Fondo decorativo */}
       <div className="absolute inset-0 opacity-20 pointer-events-none">
-        <div className="w-[400px] h-[400px] bg-[#FBC3CC] rounded-full blur-3xl absolute top-20 left-10" />
-        <div className="w-[300px] h-[300px] bg-white rounded-full blur-3xl absolute bottom-10 right-10" />
+        <div className="w-[300px] sm:w-[400px] h-[300px] sm:h-[400px] bg-[#FBC3CC] rounded-full blur-3xl absolute top-20 left-10" />
+        <div className="w-[200px] sm:w-[300px] h-[200px] sm:h-[300px] bg-white rounded-full blur-3xl absolute bottom-10 right-10" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Título principal */}
-        <div className="text-center mb-20 animate-fadeIn">
+        <div className="text-center mb-12 sm:mb-16 md:mb-20 animate-fadeIn px-4">
           <h2
-            className="text-5xl md:text-6xl font-bold mb-4 tracking-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 tracking-tight"
             style={{ color: "#4D2417", fontFamily: "serif" }}
           >
             Sobre Nosotros
           </h2>
           <p
-            className="text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed"
+            className="text-base sm:text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed"
             style={{ color: "#4D2417" }}
           >
             Tradición, pasión y arte en cada producto. Inspirados en la riqueza del café colombiano.
@@ -407,19 +409,19 @@ const About = () => {
         </div>
 
         {/* Misión y Visión */}
-        <div className="grid md:grid-cols-2 gap-10 mb-16">
-          <div className="group bg-white rounded-3xl p-10 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl animate-fadeIn">
-            <div className="flex items-center mb-6">
-              <Heart className="text-pink-300 mr-3 group-hover:scale-110 transition-transform" size={36} />
+        <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 mb-12 sm:mb-16">
+          <div className="group bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl animate-fadeIn">
+            <div className="flex items-center mb-4 sm:mb-6">
+              <Heart className="text-pink-300 mr-3 group-hover:scale-110 transition-transform" size={28} />
               <h3
-                className="text-3xl font-bold"
+                className="text-2xl sm:text-3xl font-bold"
                 style={{ color: "#4D2417", fontFamily: "serif" }}
               >
                 Misión
               </h3>
             </div>
             <p
-              className="text-lg leading-relaxed"
+              className="text-base sm:text-lg leading-relaxed"
               style={{ color: "#4D2417" }}
             >
               Nuestra misión es desarrollar productos innovadores a base de café que inspiren
@@ -430,18 +432,18 @@ const About = () => {
             </p>
           </div>
 
-          <div className="group bg-white rounded-3xl p-10 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl animate-fadeIn">
-            <div className="flex items-center mb-6">
-              <Users className="text-pink-300 mr-3 group-hover:scale-110 transition-transform" size={36} />
+          <div className="group bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl animate-fadeIn">
+            <div className="flex items-center mb-4 sm:mb-6">
+              <Users className="text-pink-300 mr-3 group-hover:scale-110 transition-transform" size={28} />
               <h3
-                className="text-3xl font-bold"
+                className="text-2xl sm:text-3xl font-bold"
                 style={{ color: "#4D2417", fontFamily: "serif" }}
               >
                 Visión
               </h3>
             </div>
             <p
-              className="text-lg leading-relaxed"
+              className="text-base sm:text-lg leading-relaxed"
               style={{ color: "#4D2417" }}
             >
               Nuestra visión es consolidarnos como una marca reconocida y cercana, integrando
@@ -455,18 +457,18 @@ const About = () => {
         </div>
 
         {/* Historia */}
-        <div className="bg-white rounded-3xl p-12 shadow-xl mb-20 animate-fadeIn">
-          <div className="flex items-center mb-6">
-            <Coffee className="text-pink-300 mr-3" size={36} />
+        <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 shadow-xl mb-12 sm:mb-16 md:mb-20 animate-fadeIn">
+          <div className="flex items-center mb-4 sm:mb-6">
+            <Coffee className="text-pink-300 mr-3" size={28} />
             <h3
-              className="text-3xl font-bold"
+              className="text-2xl sm:text-3xl font-bold"
               style={{ color: "#4D2417", fontFamily: "serif" }}
             >
               Nuestros Productos y Servicios
             </h3>
           </div>
           <p
-            className="text-lg leading-relaxed mb-4"
+            className="text-base sm:text-lg leading-relaxed mb-4"
             style={{ color: "#4D2417" }}
           >
             SET Coffee ofrecerá una propuesta innovadora basada en el café como ingrediente principal,
@@ -475,7 +477,7 @@ const About = () => {
             snacks distintivos.
           </p>
           <p
-            className="text-lg leading-relaxed"
+            className="text-base sm:text-lg leading-relaxed"
             style={{ color: "#4D2417" }}
           >
             Cada creación está cuidadosamente desarrollada para sorprender y
@@ -485,7 +487,7 @@ const About = () => {
         </div>
 
         {/* Valores */}
-        <div className="grid md:grid-cols-3 gap-10 animate-fadeIn">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 md:gap-10 animate-fadeIn">
           {[
             {
               title: "Calidad",
@@ -505,17 +507,17 @@ const About = () => {
           ].map((value, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-3xl p-8 shadow-lg text-center transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl"
+              className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-lg text-center transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl"
             >
-              <div className="text-6xl mb-4">{value.icon}</div>
+              <div className="text-5xl sm:text-6xl mb-4">{value.icon}</div>
               <h4
-                className="text-2xl font-bold mb-3"
+                className="text-xl sm:text-2xl font-bold mb-3"
                 style={{ color: "#4D2417", fontFamily: "serif" }}
               >
                 {value.title}
               </h4>
               <p
-                className="text-lg font-light leading-relaxed"
+                className="text-base sm:text-lg font-light leading-relaxed"
                 style={{ color: "#4D2417" }}
               >
                 {value.desc}
@@ -532,56 +534,56 @@ const About = () => {
 const Contact = () => {
   return (
     <section
-      className="min-h-screen py-20 px-6 flex items-center justify-center"
+      className="min-h-screen py-16 sm:py-20 px-4 sm:px-6 flex items-center justify-center"
       style={{ backgroundColor: "#DDC7AB" }}
     >
-      <div className="max-w-4xl w-full bg-white rounded-3xl shadow-2xl overflow-hidden grid md:grid-cols-2">
+      <div className="max-w-4xl w-full bg-white rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden grid md:grid-cols-2">
 
         {/* Columna izquierda - Información de contacto */}
-        <div className="p-10 flex flex-col justify-center bg-gradient-to-b from-[#FBC3CC] to-[#EAA6B2] text-white">
-          <h2 className="text-4xl font-bold mb-6" style={{ fontFamily: "serif" }}>
+        <div className="p-6 sm:p-8 md:p-10 flex flex-col justify-center bg-gradient-to-b from-[#FBC3CC] to-[#EAA6B2] text-white">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6" style={{ fontFamily: "serif" }}>
             Contáctanos
           </h2>
-          <p className="text-lg mb-10 opacity-90">
+          <p className="text-base sm:text-lg mb-6 sm:mb-10 opacity-90">
             Si deseas conocer más sobre nuestros productos o tienes alguna inquietud, no dudes en comunicarte con nosotros.
           </p>
 
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             <div className="flex items-center">
-              <div className="p-3 bg-white/20 rounded-full mr-4">
-                <Phone size={24} />
+              <div className="p-2 sm:p-3 bg-white/20 rounded-full mr-3 sm:mr-4">
+                <Phone size={20} className="sm:w-6 sm:h-6" />
               </div>
-              <span className="text-lg font-medium">+57 300 123 4567</span>
+              <span className="text-base sm:text-lg font-medium">+57 300 123 4567</span>
             </div>
 
             <div className="flex items-center">
-              <div className="p-3 bg-white/20 rounded-full mr-4">
-                <MapPin size={24} />
+              <div className="p-2 sm:p-3 bg-white/20 rounded-full mr-3 sm:mr-4">
+                <MapPin size={20} className="sm:w-6 sm:h-6" />
               </div>
-              <span className="text-lg font-medium">El Pital - Huila, Colombia</span>
+              <span className="text-base sm:text-lg font-medium">El Pital - Huila, Colombia</span>
             </div>
           </div>
         </div>
 
         {/* Columna derecha - Redes sociales */}
-        <div className="p-10 flex flex-col items-center justify-center text-center">
+        <div className="p-6 sm:p-8 md:p-10 flex flex-col items-center justify-center text-center">
           <h3
-            className="text-3xl font-bold mb-6"
+            className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6"
             style={{ color: "#4D2417", fontFamily: "serif" }}
           >
             Síguenos
           </h3>
 
-          <p className="text-lg mb-8 max-w-md" style={{ color: "#4D2417" }}>
+          <p className="text-base sm:text-lg mb-6 sm:mb-8 max-w-md" style={{ color: "#4D2417" }}>
             Únete a nuestra comunidad y descubre las últimas novedades, productos y lanzamientos de <span className="font-semibold">Set Coffee</span>.
           </p>
 
-          <div className="flex space-x-6">
+          <div className="flex space-x-4 sm:space-x-6">
             <a
               href="#"
-              className="p-5 bg-[#FBC3CC] rounded-full hover:bg-[#EAA6B2] hover:scale-110 transition-all shadow-md"
+              className="p-4 sm:p-5 bg-[#FBC3CC] rounded-full hover:bg-[#EAA6B2] hover:scale-110 transition-all shadow-md"
             >
-              <Instagram size={32} className="text-white" />
+              <Instagram size={28} className="text-white sm:w-8 sm:h-8" />
             </a>
           </div>
         </div>
@@ -594,20 +596,20 @@ const Contact = () => {
 const Footer = () => {
   return (
     <footer
-      className="py-14 px-6 relative overflow-hidden"
+      className="py-10 sm:py-12 md:py-14 px-4 sm:px-6 relative overflow-hidden"
       style={{ backgroundColor: "#4D2417" }}
     >
       {/* Elemento decorativo de fondo */}
-      <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/coffee-beans.png')] bg-repeat"></div>
+      <div className="absolute inset-0 opacity-10 bg-repeat"></div>
 
       <div className="relative max-w-6xl mx-auto text-center z-10">
         {/* Logo y marca */}
-        <div className="flex justify-center items-center mb-4">
-          <div className="p-3 bg-[#FBC3CC] rounded-full shadow-md mr-3 animate-pulse-slow">
-            <Coffee size={28} className="text-[#4D2417]" />
+        <div className="flex justify-center items-center mb-3 sm:mb-4">
+          <div className="p-2 sm:p-3 bg-[#FBC3CC] rounded-full shadow-md mr-2 sm:mr-3 animate-pulse-slow">
+            <Coffee size={24} className="text-[#4D2417] sm:w-7 sm:h-7" />
           </div>
           <h2
-            className="text-3xl md:text-4xl font-bold text-white tracking-wide"
+            className="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-wide"
             style={{ fontFamily: "serif" }}
           >
             Set Coffee
@@ -616,26 +618,26 @@ const Footer = () => {
 
         {/* Lema */}
         <p
-          className="text-[#DDC7AB] mb-8 text-lg italic max-w-xl mx-auto leading-relaxed"
+          className="text-[#DDC7AB] mb-6 sm:mb-8 text-base sm:text-lg italic max-w-xl mx-auto leading-relaxed px-4"
         >
           El arte de cultivar, el placer de disfrutar.
         </p>
 
         {/* Íconos de redes sociales */}
-        <div className="flex justify-center space-x-6 mb-10">
+        <div className="flex justify-center space-x-4 sm:space-x-6 mb-6 sm:mb-10">
           <a
             href="#"
-            className="p-4 bg-[#FBC3CC] rounded-full hover:bg-[#EAA6B2] hover:scale-110 transition-all duration-300 shadow-lg"
+            className="p-3 sm:p-4 bg-[#FBC3CC] rounded-full hover:bg-[#EAA6B2] hover:scale-110 transition-all duration-300 shadow-lg"
           >
-            <Instagram className="text-white" size={26} />
+            <Instagram className="text-white" size={22} />
           </a>
         </div>
 
         {/* Línea divisoria */}
-        <div className="h-px w-2/3 mx-auto bg-[#DDC7AB] opacity-30 mb-6"></div>
+        <div className="h-px w-2/3 mx-auto bg-[#DDC7AB] opacity-30 mb-4 sm:mb-6"></div>
 
         {/* Derechos reservados */}
-        <p className="text-sm text-[#DDC7AB]">
+        <p className="text-xs sm:text-sm text-[#DDC7AB] px-4">
           © {new Date().getFullYear()} <span className="font-semibold">Set Coffee</span>.
           Todos los derechos reservados.
         </p>
@@ -691,6 +693,20 @@ export default function App() {
         @keyframes bounce {
           0%, 100% { transform: translateY(0); }
           50% { transform: translateY(-10px); }
+        }
+        @keyframes scaleIn {
+          from { opacity: 0; transform: scale(0.9); }
+          to { opacity: 1; transform: scale(1); }
+        }
+        .animate-scaleIn {
+          animation: scaleIn 0.3s ease-out;
+        }
+        @keyframes pulse-slow {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.8; }
+        }
+        .animate-pulse-slow {
+          animation: pulse-slow 3s ease-in-out infinite;
         }
       `}</style>
 
