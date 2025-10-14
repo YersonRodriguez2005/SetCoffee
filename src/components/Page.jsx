@@ -2,6 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, Coffee, Heart, Users, Phone, MapPin, Instagram, ShoppingBag } from 'lucide-react';
 
 import logo from "../assets/Logo.jpg";
+import MerengosImg from "../assets/Merengos.jpg"
+import HeladosCremaImg from "../assets/HeladosCrema.jpg"
+import GalletasImg from "../assets/Galletas.jpg"
+import BebidasImg from "../assets/Bebidas.jpg"
+import HeladosImg from "../assets/Helados.jpg"
+import PostresImg from "../assets/Postres.jpg"
+import FiltradoImg from "../assets/Filtrados.avif"
+
 
 // Componente de Navegación
 const Navbar = ({ activeSection, setActiveSection }) => {
@@ -134,12 +142,12 @@ const Hero = ({ setActiveSection }) => {
         <div className="flex justify-center mb-6 sm:mb-10">
           <div className="p-2 sm:p-3 bg-white/90 rounded-full shadow-2xl animate-bounce-slow">
             <div className="p-3 bg-white/90 rounded-full shadow-2xl animate-bounce-slow">
-            <img
-              src={logo}
-              alt="Logo Set Coffee"
-              className="w-40 h-40 object-cover rounded-full border-4 border-pink-200 shadow-md transition-transform duration-500 hover:scale-110"
-            />
-          </div>
+              <img
+                src={logo}
+                alt="Logo Set Coffee"
+                className="w-40 h-40 object-cover rounded-full border-4 border-pink-200 shadow-md transition-transform duration-500 hover:scale-110"
+              />
+            </div>
           </div>
         </div>
 
@@ -186,60 +194,70 @@ const Hero = ({ setActiveSection }) => {
 const Products = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
 
+
   const products = [
     {
       id: 1,
-      nombre: "Tiramisú de Café",
-      descripcion: "Postre artesanal con sabor intenso a café espresso",
+      nombre: "Postres de Café",
+      descripcion: "Postres artesanales con el toque distintivo del café colombiano.",
       descripcionCompleta:
-        "Delicioso tiramisú elaborado con café colombiano premium, mascarpone cremoso y un toque de cacao. Cada capa cuenta una historia de sabor.",
-      precio: "$12.000",
-      imagen: "☕🍰",
+        "Variedad de postres elaborados con ingredientes frescos y café de alta calidad. Perfectos para disfrutar después de una buena comida o en cualquier momento del día.",
+      precio: "$4.000",
+      imagen: PostresImg,
     },
     {
       id: 2,
-      nombre: "Brownies de Café",
-      descripcion: "Brownie húmedo con esencia de café tostado",
+      nombre: "Merengos de Café",
+      descripcion: "Merengos suaves con notas de café espresso.",
       descripcionCompleta:
-        "Brownies artesanales que combinan chocolate belga con café especial, creando una experiencia única para los amantes del chocolate y el café.",
-      precio: "$8.000",
-      imagen: "🍫☕",
+        "Delicados merengos con una ligera textura crujiente por fuera y suaves por dentro, infusionados con el sabor intenso del café colombiano.",
+      precio: "$400",
+      imagen: MerengosImg,
     },
     {
       id: 3,
-      nombre: "Galletas Café",
-      descripcion: "Galletas crujientes con granos de café",
+      nombre: "Helados de Café en Crema",
+      descripcion: "Helados artesanales con café cremoso y textura suave.",
       descripcionCompleta:
-        "Galletas horneadas al momento con granos de café molido, mantequilla artesanal y un toque de vainilla. Perfectas para acompañar tu bebida favorita.",
-      precio: "$6.000",
-      imagen: "🍪☕",
+        "Helado de crema preparado con café recién filtrado, ofreciendo una mezcla perfecta entre dulzura y amargor que refresca y estimula los sentidos.",
+      precio: "$2.500",
+      imagen: HeladosCremaImg,
     },
     {
       id: 4,
-      nombre: "Cheesecake Café",
-      descripcion: "Cheesecake cremoso con cobertura de café",
+      nombre: "Helados con paleta de Café",
+      descripcion: "Helados artesanales con café cremoso y textura suave.",
       descripcionCompleta:
-        "Suave cheesecake con base de galleta, cubierto con una deliciosa crema de café y decorado con granos tostados.",
-      precio: "$15.000",
-      imagen: "🍰☕",
+        "Helado de crema preparado con café recién filtrado, ofreciendo una mezcla perfecta entre dulzura y amargor, esta vez con paleta.",
+      precio: "$1.000",
+      imagen: HeladosImg,
     },
     {
       id: 5,
-      nombre: "Muffins de Café",
-      descripcion: "Muffins esponjosos con chips de chocolate",
+      nombre: "Filtrados de Café",
+      descripcion: "Café filtrado con métodos artesanales.",
       descripcionCompleta:
-        "Muffins recién horneados con café aromático y chips de chocolate. El desayuno perfecto o merienda ideal.",
-      precio: "$5.000",
-      imagen: "🧁☕",
+        "Preparaciones filtradas con distintos métodos como Chemex, V60 o prensa francesa. Cada filtrado resalta perfiles únicos del café colombiano.",
+      precio: "Varía según el filtrado",
+      imagen: FiltradoImg,
     },
     {
       id: 6,
-      nombre: "Helado de Café",
-      descripcion: "Helado artesanal con café colombiano",
+      nombre: "Galletas de Café",
+      descripcion: "Galletas crocantes con esencia de café.",
       descripcionCompleta:
-        "Helado cremoso elaborado con café colombiano de origen, leche fresca y un toque de caramelo. Refrescante y energizante.",
-      precio: "$10.000",
-      imagen: "🍨☕",
+        "Galletas caseras con notas de café tostado y trozos de chocolate, ideales para acompañar una taza de espresso o un filtrado.",
+      precio: "$1.000",
+      imagen: GalletasImg,
+    },
+    {
+      id: 7,
+      nombre: "Bebidas a base de Café",
+      descripcion: "Bebidas innovadoras frías y calientes con base de café.",
+      descripcionCompleta:
+        "Amplia gama de bebidas creadas a partir del café colombiano: desde frappés y cócteles hasta lattes especiados y bebidas sin alcohol.",
+      precio: "$8.000",
+      imagen: BebidasImg,
     },
   ];
 
@@ -280,12 +298,13 @@ const Products = () => {
               className="group relative bg-white rounded-2xl sm:rounded-3xl shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer animate-fadeIn"
               onClick={() => setSelectedProduct(product)}
             >
-              {/* Imagen o ícono */}
-              <div
-                className="h-40 sm:h-48 md:h-52 flex items-center justify-center text-6xl sm:text-7xl md:text-8xl transition-all duration-300 group-hover:scale-110"
-                style={{ backgroundColor: "#DDC7AB" }}
-              >
-                {product.imagen}
+              {/* ✅ Cambia el contenedor para mostrar la imagen correctamente */}
+              <div className="h-48 w-full bg-[#DDC7AB] flex items-center justify-center overflow-hidden">
+                <img
+                  src={product.imagen}
+                  alt={product.nombre}
+                  className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
+                />
               </div>
 
               {/* Contenido */}
